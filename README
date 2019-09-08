@@ -1,0 +1,80 @@
+README FILE FOR NETRECONN
+=========================
+LICENSE: See COPYING in the source distribution for details.
+
+THE NAME: '(net)work-(reconn)oiter' (netrecon is trademarked ...)
+
+ABOUT: netreconn is a collection of network scan/recon tools that are
+       relatively small and usually faster compared to their larger cousins. 
+
+       nstrobe:  A network port scanner that only does port scanning
+       ntraf: A tiny ip version 4 tcp/ethernet dumper (requires libpcap)
+             can detect tcp, udp and/or icmp
+       ntrace: Scan a host and trace the session using nstrobe and ntraf
+               in parallel.
+       ndecode: packet payload decoder
+
+It should be noted that these tools are not meant to replace existing ones
+but instead to compliment the *nix network troubleshooters toolbox. There
+are certain things purposely missing in these in order to keep them small.
+
+FEATURES
+--------
+- Ping-like only fast connect/select check 
+- Precheck support (skips dead hosts) and keeps going
+- Tiny footprint with only one dependency (pcap) for the sniffer
+- Easy to use and modify for your own systems
+- Simple port range support e.g. -p 23 or -p 22-80
+- Fine grained timeout support in seconds, useconds or both
+- Fast by default but able to do non-strobes (past port 1024/no service mapping)
+- Optional full tcp connect for every port 
+- Very fast packet watching capability with little tiny footprint
+- Simple subnet specification in the form of x.x.x.x-X
+- ipv6 support (EXPERIMENTAL)
+- Session dump capability using libpcap during scans in parallel
+- Simple packet payload decoding in ascii
+
+SEE ALSO: The TODO file for stuff that is being worked on/added.
+
+CONFIGURE
+---------
+Not all systems support the destination directories for manual pages and
+binaries, edit the top of the Makefile to change these. Also note that
+ntrace is a perl script and will need the execution path changed if the
+default was changed.
+
+BUILD AND INSTALL UTILITIES
+---------------------------
+Netreconn has to be built for your platform. Tested platforms are:
+	linux freebsd netbsd darwin
+* cd to where the sources are
+* make <platform-name>
+
+For instance - NetBSD do the following:
+* cd to where the sources are
+* make netbsd
+
+Each binary (in case you are missing a library) can be compiled seperately
+by name; e.g. 'make ip4map' will only compile that binary.
+
+To try it out just:
+
+	./nstrobe -v <hostname_or_IPaddress>
+
+or
+
+	sudo ./ntraf 
+
+or
+
+	sudo ./ndecode port 22 
+
+Run `make install` to install to /usr/local/bin.
+
+UNINSTALL
+---------
+Run `make uninstall` in the source directory to remove.
+
+QUESTIONS/BRICKS
+----------------
+  pantos.sys@gmail.com

@@ -1,0 +1,20 @@
+.TH NLIST  1  "February 08, 2010" "version 1.76" "USER COMMANDS"
+.SH NAME
+nlist \- List hosts that are up. The nlist utility can iterate over comma delimited lists of addresses.
+.SH SYNOPSIS
+.B nlist
+[\-u]||[specification1,specification2...]
+.SH DESCRIPTION
+The
+.B nlist
+command does a simple pinglike sweep of a set of networks specified by the admin
+.SH OPTIONS
+.TP
+\-u
+Print usage message and exit.
+.SH EXAMPLES
+
+   nlist 192.168.1.10-24,192.168.0.1-254
+
+.SH AUTHOR
+Jason R Fink <pantos.sys@gmail.com>

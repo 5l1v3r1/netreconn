@@ -1,0 +1,19 @@
+TODO File for netreconn toolsl; asterisk  marks target(s) for next release
+nstrobe:
+- BUG: hostname-NUMBER counts up until number is reached from the hostname.
+       Not really sure if that is a bug or feature???
+nlist:
+- portability testing on netbsd, freebsd, debian and ubuntu *
+new stuff:
+- etherdump raw dumper tool or add to ntraf
+- arpdumper tool or add to ntraf
+nstrobe:
+- better perhost timers
+- if practical a true pre-ping using ICMP versus a full connect
+- Support for user to change TCP flags in both directions
+- Something like top-ports or popular ports to increase performance
+- capability to do more than class C scoped addresses (not a drop dead item)
+ntraf and/or ndecode:
+- write handling and identification and printing for all common well
+  defined IP protocols; this will take a lot of work as it requires 
+  delaing with each data struct

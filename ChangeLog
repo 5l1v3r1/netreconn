@@ -1,0 +1,93 @@
+version 1.76
+ - Verification testing only
+version 1.75
+ - Fixed a segv when host-part is used
+ - Added the nlist wrapper
+ - Trimmed output for pingonly scans
+version 1.74
+ - Fixed ntrace savelog for nstrobe data
+ - Added pingonly to ntrace (-P option)
+ - Added ndecode to ntrace (-F option: not default)
+ - Changed Makefile from flat copy and deletes to use for loops
+version 1.73
+ - Added saving scan trace to ntrace
+ - verified man pages vs. usage message
+ - changed -u to usage on nstrobe and use -P for ping for consistency
+ - ntraf now decodes type of protocol, currently grabs icmp, udp and tcp
+   a filter can override this
+ - changed ipdump to ntraf
+ - Added ntrace utility to fire off nstrobe and ntraf at the same time
+version 1.72
+ - fixed ipdump manpage
+ - added payload decoder ndecode 
+ - better input validation (still not perfect though)
+ - converted to standard exit codes everywhere
+ - nstrobe: Fixed AI_ADDRCONFIG error on NetBSD
+ - deleted mini portcheck program, quickport() routine does this in nstrobe
+ - Added primitive ipv6 support to nstrobe
+ - moved ip4map to nstrobe which is what it is really doing
+ - deleted all of the wrapper scripts
+version 1.71
+ - updated manpage for ip4map
+ - manpage for portcheck
+ - ip4map: changed -u to -h (help) & -P to -u for up; not sure that will stick
+ - portcheck added, single host and port for ipv6 and ipv4
+ - Migrated range/dot input parsing to helpers to lower ssize/cleanup main()
+ - Changed vflag to verbose since it is no longer a global
+ - Updated man pages and examples
+ - Got rid of no-service print feature - useless feature plus dropped a global
+ - Global scandata (flags, portrange and subnet) now in a data structure
+ - Changed -C to -c. Trying to get rid of caps options...
+ - Fixed README errors and typos
+ - Added ip6port (untested)
+version 1.70
+ - Printing start/stop for full scan now
+ - Manual pages for ip4dump and ip4port added
+ - Added nagios wrapper example script.
+ - Changed ip4port to a wrapper script. 
+ - Upper port range bound check bug, not serious just irritating.
+ - Made socket errors and isalive reusable in ip4utils.c
+ - Made copy_argv and printime reusable in utils.c
+ - Converted to netreconn
+ - Changed ns to ip4map
+ - Imported usniff as ip4dump utility
+ - Updated Manual Page for ip4map
+ - Update README for all
+ - Fixed segv in hostname specification bug in ip4map
+version 1.60
+ - Fixed major subnet looping bug
+ - Stable version
+ - Better TODO/Roadmap
+version 1.50
+ - Purtied up the code
+ - Now checks for self IP address and will skip self scanning if it is
+   detected
+ - Converted the -ts and -tu specifications to -t SECONDS.USECONDS format.
+version 1.40
+ - Changed -p option to support both -p PORTNO or -p STARTPORT-ENDPORT
+ - Enabled subetscanning on address specification instead of using
+   an option 
+ - Dumped single address code in favor of making
+   end equals start address if no end is specified (loop once)
+ - Dropped ckport in favor of a separate utility
+ - Removed subnet flag in favor of using the existence of a subnet
+   as the key for looping over hosts
+ - Enabled full connect for every port as an option
+ - Changed t flag to x flag for semantics
+ - Added ts flag for timeout seconds
+ - Added tu flag for timeout useconds
+ - Update man page and usage 
+version 1.30
+ - Manual page formatting fixed
+ - Speed up flag for pre-flight check only check to see if a host
+   is actually up the first time; skip it for each subsequent port
+version 1.20 aka vegas-merges
+ - Do not print port when checking 1 port in ns
+ - When doing ping-like check do not print port info
+ - Range support for ping check bug fixed
+version 1.10
+ - Added in-depth connect() error handling
+ - Added ping-like only check (isalive)
+ - Man page update
+version 1.00
+ - Initial revision 

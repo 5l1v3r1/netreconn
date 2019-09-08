@@ -1,0 +1,18 @@
+Begin3
+Title:          netreconn
+Version:        1.76
+Entered-date:   20100208
+Description:    The netreconn utilities are fast lightweight 
+                (net)work-(reconn)oiter tasks. They include
+                a fast ip port scanner, simple ip packet dumper
+				and payload decoder
+Keywords:       portscan, hostscan, netscan, network, sniffer, dumper, decode
+Author:         Jason R. Fink <pantos.sys@gmail.com>
+Maintained-by:  Jason R. Fink <pantos.sys@gmail.com>
+Primary-site:   http://systhread.net/coding/
+Alternate-site: ibiblio.org /pub/Linux/network
+Original-site:  http://systhread.net/coding/
+Platforms:      x86 Linux BSD
+Copying-policy: GPL
+End
+

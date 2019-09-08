@@ -1,0 +1,28 @@
+.TH NDECODE  1 "February 08, 2010" "version 1.76" "USER COMMANDS"
+.SH NAME
+ndecode \- Decode and print network packet payloads
+.SH SYNOPSIS
+.B ndecode
+[\-i dev][\-p N][\-u] <expr>
+.SH DESCRIPTION
+The
+.B ndecode
+command decodes network packet payloads to ascii and prints the results. ndecode
+accepts all standard pcap filters.
+.SH OPTIONS
+.TP
+\-i dev
+Read packets on network interface defined by dev
+.TP
+\-p N     
+Exit after printing N packets.
+.TP
+\-u
+Print usage message and exit.
+.SH EXAMPLES
+Look only for port 22 in device em0:
+
+   ndecode -i em0 port 22
+
+.SH AUTHOR
+Jason R Fink <pantos.sys@gmail.com>

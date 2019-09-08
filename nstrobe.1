@@ -1,0 +1,71 @@
+.TH NSTROBE  1 "February 08, 2010" "version 1.76" "USER COMMANDS"
+.SH NAME
+nstrobe \- Scan hosts to see what ports are open.
+.SH SYNOPSIS
+.B nstrobe
+[\-c][\-d][\-P][\-p n-N][\-t n.n][\-u][\-v][\-x]
+.SH DESCRIPTION
+The
+.B nstrobe
+command scans a host or subnet range of hosts for open ports.
+.SH OPTIONS
+.TP
+\-6
+IPV6 Single port check
+.TP
+\-d 
+Set socket to datagram (experimental)
+.TP
+\-c
+Perform a full connect on every port (slow)
+.TP
+\-u
+Print help/usage message and exit
+.TP
+\-P       
+Is up only check, ping-like check only (performs a connect then socket select)
+.TP
+\-p n-N
+Scan a single port specified by n or a range of n-N.
+.TP
+\-t n.n     
+Set host scan timeout expire to seconds.useconds
+.TP
+\-v       
+Be verbose (print service names).
+.TP
+\-x
+Xtra scanning; do not use services files and scan beyond port 1024.
+.SH NOTES
+When scanning by default
+.B nstrobe
+strobes, it defaults to the fastest method possible. It also uses a 1 second
+timeout for pre-checking if a host is up; this is because pre-checks are
+full AF_INET connect/select (but only one) checks. If a host is down 
+.B nstrobe
+will drop scanning immediately and move on. Also 
+.B nstrobe
+does not use icmp for ping checks, instead it does a connect/select and
+skips the actual port checks - somehow this makes it faster than most
+scanners in the ping-only department.
+.SH BUGS
+.B hops     
+Long hops do not seem to work consistently.
+.SH EXAMPLES
+Look only for port 22:
+
+   nstrobe -p 22  foo.net
+
+Scan ports 22-80 on 192.168.1.0 and be verbose:
+
+   nstrobe -p 22-80 -v 192.168.1.1-255
+
+.SH NOTES
+There is currently limited single port single host ipv6 support:
+
+	nstrobe -6 -p 22 ::1
+
+For example works great. Also works with LAN accessible ipv6.
+
+.SH AUTHOR
+Jason R Fink <pantos.sys@gmail.com>

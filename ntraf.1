@@ -1,0 +1,32 @@
+.TH NTRAF  1 "February 08, 2010" "version 1.76" "USER COMMANDS"
+.SH NAME
+ntraf \- Dump ipv packets to stdout
+.SH SYNOPSIS
+.B ntraf
+[\-i dev][\-p N][\-u] <expr>
+.SH DESCRIPTION
+The
+.B ntraf
+command dumps network traffic to stdout. It accepts all valid libpcap 
+filters.
+.SH OPTIONS
+.TP
+\-i dev
+Read packets on network interface defined by dev
+.TP
+\-p N     
+Exit after printing N packets.
+.TP
+\-u
+Print usage message and exit.
+.SH EXAMPLES
+Look only for port 22 in device em0:
+
+   ntraf -i em0 port 22
+
+Dump all traffic on the default interface except port 80 and exit after 1024 packets:
+
+   ntraf -p 1024 not port 80
+
+.SH AUTHOR
+Jason R Fink <pantos.sys@gmail.com>

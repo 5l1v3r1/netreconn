@@ -1,0 +1,40 @@
+.TH NTRACE  1 "February 08, 2010" "version 1.76" "USER COMMANDS"
+.SH NAME
+ntrace \- trace a single host portscan with pcap
+.SH SYNOPSIS
+.B ntrace
+[\-i dev][\-p n-N][\-u][\-t n.n][-h host]
+.SH DESCRIPTION
+The
+.B ntrace
+command starts up a traffic capture then scans a host.
+.SH OPTIONS
+.TP
+\-F 
+Do a full trace (include packet decoding)
+.TP
+\-i dev
+Read packets on network interface defined by dev
+.TP
+\-u
+Print usage message and exit.
+.TP
+\-P
+Do a ping only check.
+.TP
+\-p n-N Scan a single port or portrange specified by n-N
+.TP
+\-t n.n Set the default scan timeout in seconds.microseconds
+.TP
+\-S 
+Save the tracefile.
+.TP
+\-h host Scan targ using IP address or hostname
+
+.SH EXAMPLES
+Trace a single host many ports
+
+   ntrace -i eth1 -h vela
+
+.SH AUTHOR
+Jason R Fink <pantos.sys@gmail.com>
